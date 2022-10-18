@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
   <header class="blog-header lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#">Subscribe</a>
+        <a class="link-secondary" href="#">Panier <span class="badge rounded-pill bg-dark">{{ Cart::count() }}</span></a>
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="#">Large</a>
@@ -192,7 +192,11 @@ h1, h2, h3, h4, h5, h6 {
     </nav>
   </div>
 </div>
-
+@if (session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+@endif
 <main class="container">
   <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
     <div class="col-md-6 px-0">
