@@ -9,12 +9,8 @@
     <title>Blog Template · Bootstrap v5.2</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
-
-    
-
-    
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -147,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+      @stack('styles')
     </style>
 
     
@@ -161,10 +158,10 @@ h1, h2, h3, h4, h5, h6 {
   <header class="blog-header lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#">Panier <span class="badge rounded-pill bg-dark">{{ Cart::count() }}</span></a>
+        <a class="link-secondary" href="{{ route('cart.index') }}">Panier <span class="badge rounded-pill bg-dark">{{ Cart::count() }}</span></a>
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">Large</a>
+        <a class="blog-header-logo text-dark" href="{{ route('products.index') }}">Large</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -198,13 +195,13 @@ h1, h2, h3, h4, h5, h6 {
   </div>
 @endif
 <main class="container">
-  <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+  {{--<div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
     <div class="col-md-6 px-0">
       <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
       <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
       <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
     </div>
-  </div>
+  </div>--}}
 
   <div class="row mb-2">
     @yield('content')
